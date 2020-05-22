@@ -14,7 +14,6 @@ def twoStrings(s1, s2):
         if letter in s2:
             return "YES"
     return "NO"
-
     
     ''' original idea, timed out
     
