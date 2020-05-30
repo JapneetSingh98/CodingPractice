@@ -1,4 +1,4 @@
-"""
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -42,7 +42,7 @@ class Node {
 };
 
 */
-"""
+
     Node *lca(Node *root, int v1,int v2) {
 		// Write your code here.
 
@@ -60,7 +60,7 @@ class Node {
 
 }; //End of Solution
 
-"""
+/*
 int main() {
   
     Solution myTree;
@@ -85,4 +85,4 @@ int main() {
 
     return 0;
 }
-"""
+*/

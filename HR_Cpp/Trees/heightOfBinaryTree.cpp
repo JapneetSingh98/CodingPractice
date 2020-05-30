@@ -1,4 +1,4 @@
-"""
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -41,7 +41,7 @@ class Node {
 };
 
 */
-"""
+
 
     int height(Node* root) {
         // Write your code here.
@@ -70,7 +70,7 @@ class Node {
 
 }; //End of Solution
 
-"""
+/*
 int main() {
   
     Solution myTree;
@@ -92,4 +92,4 @@ int main() {
 
     return 0;
 }
-"""
+*/

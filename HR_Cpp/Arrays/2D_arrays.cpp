@@ -1,8 +1,8 @@
-"""
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
-"""
+*/
 // Complete the hourglassSum function below.
 int hourglassSum(vector<vector<int>> arr) {
     int i = 1;
@@ -19,7 +19,7 @@ int hourglassSum(vector<vector<int>> arr) {
     return maxSum;
 }
 
-"""
+/*
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
@@ -43,4 +43,4 @@ int main()
 
     return 0;
 }
-"""
+*/

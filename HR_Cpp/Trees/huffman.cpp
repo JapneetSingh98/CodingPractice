@@ -1,4 +1,4 @@
-"""
+/*
 //
 //  main.cpp
 //  Huffman
@@ -91,7 +91,7 @@ typedef struct node {
 } node;
 
 */
-"""
+
 
 void decode_huff(node * root, string s) {
     string ans = "";
@@ -118,7 +118,7 @@ void decode_helper(node * root, node * cur, string s) {
     }
 }
 
-"""
+/*
 int main() {
   
     string s;
@@ -140,4 +140,4 @@ int main() {
   
     return 0;
 }
-"""
+*/
