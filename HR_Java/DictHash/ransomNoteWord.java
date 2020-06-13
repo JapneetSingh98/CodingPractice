@@ -12,7 +12,42 @@ public class Solution {
     // Complete the checkMagazine function below.
     static void checkMagazine(String[] magazine, String[] note) {
 
-        String mag = "";
+        Arrays.sort(magazine);
+        Arrays.sort(note);
+
+
+        int cur = 0;
+        for(int i = 0; i < magazine.length; i++) {
+            
+            if(cur == note.length) {
+                break;
+            }
+            //System.out.println(" " + magazine[i]);
+            //System.out.println(" " + note[cur]);
+
+            if (magazine[i].compareTo(note[cur]) == 0) {
+                //System.out.println("   equal");
+                cur++;
+            } else if (magazine[i].compareTo(note[cur]) < 0) {
+                //System.out.println("   not yet");
+                continue;
+            } else if (magazine[i].compareTo(note[cur]) > 0) {
+                //System.out.println("   missing");
+                System.out.println("No");
+                return;
+            }
+        }
+        if(cur == note.length) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+        return;
+
+
+
+
+        /*String mag = "";
         for(String word : magazine) {
             mag = mag + word;
         }
@@ -45,8 +80,9 @@ public class Solution {
             System.out.println("No");
         }
         return;
+
     }
-/*
+
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
