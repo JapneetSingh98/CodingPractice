@@ -1,77 +1,40 @@
-#include <bits/stdc++.h>
+#!/bin/python3
 
-using namespace std;
+import math
+import os
+import random
+import re
+import sys
 
-vector<string> split_string(string);
+# Complete the countInversions function below.
+def countInversions(arr):
+    count = 0
+    return countHelp(arr, count)
+def countHelp(arr, count):
+    for i in range(1, len(arr)):
+        if arr[i] < arr[i-1]:
+            print(arr)
+            arr[i-1],arr[i] = arr[i],arr[i-1]
+            count = count + 1
+    sortedarr = arr[:]
+    sortedarr.sort()
+    if sortedarr != arr:
+        return countHelp(arr, count)
+    else:
+        print(arr)
+        return count
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-// Complete the countInversions function below.
-long countInversions(vector<int> arr) {
+    t = int(input())
 
+    for t_itr in range(t):
+        n = int(input())
 
-}
+        arr = list(map(int, input().rstrip().split()))
 
-int main()
-{
-    ofstream fout(getenv("OUTPUT_PATH"));
+        result = countInversions(arr)
 
-    int t;
-    cin >> t;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        fptr.write(str(result) + '\n')
 
-    for (int t_itr = 0; t_itr < t; t_itr++) {
-        int n;
-        cin >> n;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-        string arr_temp_temp;
-        getline(cin, arr_temp_temp);
-
-        vector<string> arr_temp = split_string(arr_temp_temp);
-
-        vector<int> arr(n);
-
-        for (int i = 0; i < n; i++) {
-            int arr_item = stoi(arr_temp[i]);
-
-            arr[i] = arr_item;
-        }
-
-        long result = countInversions(arr);
-
-        fout << result << "\n";
-    }
-
-    fout.close();
-
-    return 0;
-}
-
-vector<string> split_string(string input_string) {
-    string::iterator new_end = unique(input_string.begin(), input_string.end(), [] (const char &x, const char &y) {
-        return x == y and x == ' ';
-    });
-
-    input_string.erase(new_end, input_string.end());
-
-    while (input_string[input_string.length() - 1] == ' ') {
-        input_string.pop_back();
-    }
-
-    vector<string> splits;
-    char delimiter = ' ';
-
-    size_t i = 0;
-    size_t pos = input_string.find(delimiter);
-
-    while (pos != string::npos) {
-        splits.push_back(input_string.substr(i, pos - i));
-
-        i = pos + 1;
-        pos = input_string.find(delimiter, i);
-    }
-
-    splits.push_back(input_string.substr(i, min(pos, input_string.length()) - i + 1));
-
-    return splits;
-}
-
+    fptr.close()
