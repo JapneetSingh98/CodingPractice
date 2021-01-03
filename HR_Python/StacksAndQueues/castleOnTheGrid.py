@@ -8,6 +8,7 @@ import sys
 
 # Complete the minimumMoves function below.
 def minimumMoves(grid, startX, startY, goalX, goalY):
+    n = len(grid)
     queue = []
     visited = []
     for i in range(len(grid)):
@@ -18,19 +19,36 @@ def minimumMoves(grid, startX, startY, goalX, goalY):
             else:
                 col.append("blocked")
         visited.append(col)
+    visited[goalX][goalY] = 'goal'
     
-    queue, visited = enqueue(queue, visited, startX, startY)
+    queue, visited = enqueue(queue, visited, startX, startY, 0)
+
     while len(queue) > 0:
-        queue, visited = search(queue, visited)
+        queue, visited, reached = search(queue, visited)
     
 
-def enqueue(queue, visited, startX, startY):
-    queue.append((startX,startY))
-    visited[startX][startY] = "visited"
+def enqueue(queue, visited, curX, curY, num):
+    queue.append((curX, curY))
+    visited[curX][curY] = num
     return queue, visited
 
 def search(queue, visited):
     curX, curY = queue[0]
+    curN = visited[curX][curY]
+    if curX == 0:                           # leftmost
+        while curX < len(visited):
+            if curX + 1 == len(visited):                # reached border
+                break
+            elif visited[curX + 1][curY] == 'blocked':  # reached block
+                break
+            else:                                       # space open, continue
+                visited[curX+1][curY] = curN + 1
+                curX += 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+        if visited[curX][curY] == 'goal':
+                visited[curX][curY] = 
+
+    elif curX == len(grid) - 1:             # rightmost
+
     
 
 if __name__ == '__main__':
