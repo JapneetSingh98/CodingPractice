@@ -71,15 +71,19 @@ def check_left_right_border(ball, paddleA, paddleB, scoreboard):
 
 def check_paddle_bounce(ball, paddleA, paddleB):
    if ball.xcor() > 330 and ball.xcor() < 340:
-       upper = paddleB.ycor() + 60
-       lower = paddleB.ycor() - 60
-       if ball.ycor() < upper and ball.ycor() > lower:
-           ball.dx *= -1
+       paddle = paddleB
    elif ball.xcor() < -330 and ball.xcor() > -340:
-       upper = paddleA.ycor() + 60
-       lower = paddleA.ycor() - 60
-       if ball.ycor() < upper and ball.ycor() > lower:
-           ball.dx *= -1
+       paddle = paddleA
+   else:
+       return
+   upper = paddle.ycor() + 60
+   lower = paddle.ycor() - 60
+   if ball.ycor() < upper and ball.ycor() >= paddle.ycor():
+       ball.dx *= -1
+       ball.dy = abs(ball.dy)
+   elif ball.ycor() < paddle.ycor() and ball.ycor() > lower:
+       ball.dx *= -1
+       ball.dy = 0 -abs(ball.dy)
 
 paddleA = create_paddle(-350)
 paddleB = create_paddle(350)
