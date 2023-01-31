@@ -68,7 +68,7 @@ def check_left_right_border(ball, paddleA, paddleB, scoreboard):
         paddle = paddleB
     else:
         return
-    ball.goto(0, 0)
+    ball.setx(0)
     ball.dx *= -1
     paddle.score += 1
     update_scoreboard(scoreboard, paddleA, paddleB)
