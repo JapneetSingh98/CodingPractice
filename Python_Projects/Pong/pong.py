@@ -49,12 +49,12 @@ def move_paddle(paddle, direction):
     y = paddle.ycor()
     if direction == "up":
         y += PADDLE_MOVE
-        # if y > PAGE_HEIGHT/2 - PADDLE_HEIGHT/2:
-        #     y = PAGE_HEIGHT/2 - PADDLE_HEIGHT/2
+        if y > PAGE_HEIGHT/2 - PADDLE_HEIGHT/2:
+            y = PAGE_HEIGHT/2 - PADDLE_HEIGHT/2
     elif direction == "down":
         y -= PADDLE_MOVE
-        # if y < PADDLE_HEIGHT/2 - PAGE_HEIGHT/2:
-        #     y = PADDLE_HEIGHT/2 - PAGE_HEIGHT/2
+        if y < PADDLE_HEIGHT/2 - PAGE_HEIGHT/2:
+            y = PADDLE_HEIGHT/2 - PAGE_HEIGHT/2
     paddle.sety(y)
 
 def check_top_bottom_border(ball):
